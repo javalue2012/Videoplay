@@ -30,7 +30,7 @@
                             {
                                 var ListMovieNew = ListMovieNew1.Where(x => x.CountryID == movie.CountryID).ToList();
                             <div class="server">
-                                <span class="bss btnt btnt-primary" data-id="NGlaQTBoZWFFQUUvUGVHN3RkZnV5dz09" data-server="VIP2" style="color: #fff;background: #428bca;border-color: #357ebd;">Change Season</span>
+                                <button class="bss btnt btnt-primary" data-id="NGlaQTBoZWFFQUUvUGVHN3RkZnV5dz09" data-server="VIP2" style="color: #fff;background: #428bca;border-color: #357ebd;">Change Season</button>
                                 @for (int i = 0; i < ListMovieNew.Count(); i++)
                                 {
                                     if (ListMovieNew[i].MovieID == movie.MovieID)

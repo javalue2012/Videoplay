@@ -18,6 +18,7 @@ namespace Models.EF
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Country> Countries { get; set; }
+        public virtual DbSet<Season> Seasons { get; set; }
         public virtual DbSet<Credential> Credentials { get; set; }
         public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Movie> Movies { get; set; }
@@ -91,6 +92,10 @@ namespace Models.EF
             modelBuilder.Entity<Country>()
                 .Property(e => e.Name)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Season>()
+              .Property(e => e.Name)
+              .IsFixedLength();
 
             modelBuilder.Entity<Credential>()
                 .Property(e => e.UserGroupID)

@@ -1,30 +1,23 @@
 ﻿@using Models.EF;
-@model PagedList.IPagedList<Country>
+@model PagedList.IPagedList<Season>
 @using PagedList.Mvc;
-
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
 }
-
 @section jsFooter{
-   
-<script src="~/assets/admin/js/controller/countryController.js"></script>
+<script src="~/assets/admin/js/controller/seasonController.js"></script>
 }
-
-
 <div class="main-content">
     <center>
         <div>
-            <h3 style="background-color:lavender">DANH SÁCH QUỐC GIA </h3>
+            <h3 style="background-color:lavender">DANH SÁCH SEASON </h3>
         </div>
     </center>
     <div class="table-data__tool">
         <div class="table-data__tool-left">
             <div class="rs-select2--light rs-select2--md">
                 <form class="form-header" action="" method="POST">
-
                     <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Tìm kiếm" class="au-input au-input--xl">
                 </form>
 
@@ -35,7 +28,7 @@
 
             <button onclick="Them()" type="button" class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#myModal"><i class="fa fa-plus"></i>&nbsp;&nbsp;Thêm mới</button>
 
-            <a href="/Admin/Country"><button class="au-btn au-btn-icon au-btn--green au-btn--small"><i class="fa fa-refresh"></i>&nbsp;&nbsp;LÀM MỚI</button></a>
+            <a href="/Admin/Season"><button class="au-btn au-btn-icon au-btn--green au-btn--small"><i class="fa fa-refresh"></i>&nbsp;&nbsp;LÀM MỚI</button></a>
 
 
         </div>
@@ -53,8 +46,7 @@
             <table class="table table-data2" id="myTable">
                 <thead>
                     <tr>
-
-                        <th>Tên Quốc Gia</th>
+                        <th>Name</th>
                         <th>Trạng Thái</th>
                         <th>Ngày tạo</th>
                         <th>Chức năng</th>
@@ -66,29 +58,29 @@
                     {
                         foreach (var item in Model)
                         {
-                            <tr style="text-align:left;" id="row_@item.CountryID" class="tr-shadow">
-                                <td style="display:none;">@item.CountryID</td>
-                                <td class="tr-shadow">@item.Name</td>
-                                <td class="tr-shadow"><a href="#" class="btn-active" data-id="@item.CountryID">@Html.Raw(item.Status ? "<strong>Kích hoạt</strong>" : "<strong>Huỷ Kích Hoạt</strong>")</a></td>
-                                <td class="tr-shadow">@item.CreatedDate</td>
-                                <td>
-                                    <button type="button" onclick="Sua(this)" data-toggle="modal" data-target="#myModal" title="Sửa" class="btn btn-outline-success">
-                                        <i class="fa fa-pencil">Sửa</i>
-                                    </button>
-                                    &nbsp; &nbsp; &nbsp;
-                                    <button class="btn btn-outline-warning">
-                                        <i class="fa fa-trash-o">
-                                            @Ajax.ActionLink("Xoá", "Delete", new { @id = item.CountryID }, new AjaxOptions
-                                       {
-                                           Confirm = "Bạn có muốn xoá " + @item.Name + "?",
-                                           OnComplete = "$('row_" + @item.CountryID + "').remove()",
-                                           HttpMethod = "Delete"
-                                       })
-                                        </i>
+                    <tr style="text-align:left;" id="row_@item.Season_id" class="tr-shadow">
+                        @*<td style="display:none;">@item.Season_id</td>*@
+                        <td class="tr-shadow">@item.Name</td>
+                        <td class="tr-shadow"><a href="#" class="btn-active" data-id="@item.Season_id">@Html.Raw(item.Status ? "<strong>Kích hoạt</strong>" : "<strong>Huỷ Kích Hoạt</strong>")</a></td>
+                        <td class="tr-shadow">@item.CreatedDate</td>
+                        <td>
+                            <button type="button" onclick="Sua(this)" data-toggle="modal" data-target="#myModal" title="Sửa" class="btn btn-outline-success">
+                                <i class="fa fa-pencil">Sửa</i>
+                            </button>
+                            &nbsp; &nbsp; &nbsp;
+                            <button class="btn btn-outline-warning">
+                                <i class="fa fa-trash-o">
+                                    @Ajax.ActionLink("Xoá", "Delete", new { @id = item.Season_id }, new AjaxOptions
+                               {
+                                   Confirm = "Bạn có muốn xoá " + @item.Name + "?",
+                                   OnComplete = "$('row_" + @item.Season_id + "').remove()",
+                                   HttpMethod = "Delete"
+                               })
+                                </i>
 
-                                    </button>
-                                </td>
-                            </tr>
+                            </button>
+                        </td>
+                    </tr>
 
                         }
                     }
@@ -100,7 +92,8 @@
             </ul>
         </div>
     </div>
-    @Html.Partial("_CountryModal")
+    </div>
+    @Html.Partial("_SeasonModal")
     <script>
         function Them() {
             SetNull();
@@ -113,7 +106,7 @@
         function Xoa(el) {
             var id = el.parentNode.parentNode.cells[0].textContent;
             $.ajax({
-                url: '/Country/delList/?id=' + id,
+                url: '/Season/delList/?id=' + id,
                 type: 'POST',
                 dataType: 'json',
                 success: function () {
@@ -132,12 +125,12 @@
             $("#bt_them").hide();
             var id = el.parentNode.parentNode.cells[0].textContent;
             $.ajax({
-                url: '/Country/getList/?id=' + id,
+                url: '/Season/getList/?id=' + id,
                 type: 'GET',
                 dataType: 'json',
                 success: function (data) {
                     var json = JSON.parse(data);
-                    $("#CountryID").val(json.CountryID);
+                    $("#Season_id").val(json.Season_id);
                     $("#Name").val(json.Name);
                     $("#Status").val(json.Status);
 

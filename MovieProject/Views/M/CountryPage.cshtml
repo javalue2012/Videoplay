@@ -6,15 +6,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     var country = (Models.EF.Country)ViewBag.country;
     var ListMovieNew = (List<Models.EF.Movie>)ViewBag.ListMovieNew;
-
-
 }
-
 <div class="general-agileits-w3l">
     <div class="w3l-medile-movies-grids">
-
         <!-- /movie-browse-agile -->
-
         <div class="movie-browse-agile">
             <!--/browse-agile-w3ls -->
             <div class="browse-agile-w3ls general-w3ls">
@@ -43,28 +38,20 @@
                                         <h6><a href="/phim/@s.MovieID">@s.Name</a></h6>
                                     </div>
                                     <div class="mid-2">
-
                                         <p>@s.Year</p>
-                                      
                                         <div class="block-stars">
                                             <ul class="w3l-ratings">
                                                 <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @s.Rate</h5>
-
                                             </ul>
                                         </div>
                                         <div class="clearfix"></div>
                                     </div>
-
                                 </div>
                             </div>
                         }
-
-
-
                         <div class="clearfix"> </div>
                     </div>
                     <!-- /latest-movies1 -->
-
                 </div>
             </div>
             <!--//browse-agile-w3ls -->
@@ -75,9 +62,7 @@
                         @Html.PagedListPager(Model, Page => Url.Action("CountryPage", new { Page }), PagedListRenderOptions.PageNumbersOnly)
                     </li>
                 </ul>
-
             </div>
-
         </div>
         <!-- //movie-browse-agile -->
         <!--body wrapper start-->

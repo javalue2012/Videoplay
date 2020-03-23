@@ -86,6 +86,7 @@
     <Compile Include="Dao\CategoryDao.cs" />
     <Compile Include="Dao\CommentDao.cs" />
     <Compile Include="Dao\ContactDao.cs" />
+    <Compile Include="Dao\SeasonDao.cs" />
     <Compile Include="Dao\CountryDao.cs" />
     <Compile Include="Dao\FeedBackDao.cs" />
     <Compile Include="Dao\GroupUserDao.cs" />
@@ -100,6 +101,7 @@
     <Compile Include="EF\Category.cs" />
     <Compile Include="EF\Comment.cs" />
     <Compile Include="EF\Contact.cs" />
+    <Compile Include="EF\Season.cs" />
     <Compile Include="EF\Country.cs" />
     <Compile Include="EF\Credential.cs" />
     <Compile Include="EF\Feedback.cs" />

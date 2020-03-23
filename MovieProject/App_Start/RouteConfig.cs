@@ -28,6 +28,12 @@ namespace MovieProject
                namespaces: new[] { "MovieProject.Controllers" }
            );
             routes.MapRoute(
+             name: "season",
+             url: "season/{idc}",
+             defaults: new { controller = "M", action = "SeasonPage", id = UrlParameter.Optional },
+             namespaces: new[] { "MovieProject.Controllers" }
+         );
+            routes.MapRoute(
                name: "Movie Detail",
                url: "phim/{id}",
                defaults: new { controller = "M", action = "MovieDetail", id = UrlParameter.Optional },

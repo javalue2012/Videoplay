@@ -137,6 +137,7 @@ C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\MoviePro
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\MovieProject\bin\System.Web.Webpages.Razor.xml
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\MovieProject\bin\System.Web.Helpers.xml
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\MovieProject\bin\System.Web.Mvc.xml
+C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\MovieProject\obj\Debug\MovieProject.csprojAssemblyReference.cache
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\MovieProject\obj\Debug\MovieProject.csproj.CoreCompileInputs.cache
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\MovieProject\obj\Debug\MovieProject.csproj.CopyComplete
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\MovieProject\obj\Debug\MovieProject.dll

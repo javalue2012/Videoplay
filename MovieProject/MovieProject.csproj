@@ -1190,6 +1190,7 @@
     <Content Include="assets\admin\js\controller\cateController.js" />
     <Content Include="assets\admin\js\controller\contactController.js" />
     <Content Include="assets\admin\js\controller\commentController.js" />
+    <Content Include="assets\admin\js\controller\seasonController.js" />
     <Content Include="assets\admin\js\controller\countryController.js" />
     <Content Include="assets\admin\js\controller\movieController.js" />
     <Content Include="assets\admin\js\controller\newController.js" />
@@ -2992,6 +2993,8 @@
     <Content Include="Areas\Admin\Views\About\Index.cshtml" />
     <Content Include="Areas\Admin\Views\About\_AboutModal.cshtml" />
     <Content Include="Areas\Admin\Views\FeedBack\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Season\_SeasonModal.cshtml" />
+    <Content Include="Areas\Admin\Views\Season\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ckfinder\changelog.txt" />
@@ -3609,6 +3612,7 @@
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\CommentController.cs" />
     <Compile Include="Areas\Admin\Controllers\ContactController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SeasonController.cs" />
     <Compile Include="Areas\Admin\Controllers\CountryController.cs" />
     <Compile Include="Areas\Admin\Controllers\FeedBackController.cs" />
     <Compile Include="Areas\Admin\Controllers\GroupUserController.cs" />
