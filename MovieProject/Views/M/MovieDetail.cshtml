@@ -1,5 +1,4 @@
 ﻿@model Models.EF.Movie
-
 @{
     ViewBag.Title = "MovieDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -29,15 +28,16 @@
                         </div>
                         <div class="video-grid-single-page-agileits">
                             <video src="@movie.MovieLink" controls="controls" width="700" height="400">Trình duyệt bạn đang dùng không hỗ trợ tag video.</video>
-                            @if(movie.CountryID < 2)
-                            { 
-                            <div class="server">
-                                <span class="bss btnt btnt-primary" data-id="NGlaQTBoZWFFQUUvUGVHN3RkZnV5dz09" data-server="VIP2">Change Season</span>
-                                @for(int i=0; i< ListMovieNew1.Count(); i++)
-                                {
-                                <button type="button" onclick="window.location.href='/phim/@ListMovieNew1[i].MovieID'" value="@ListMovieNew1[i].MovieID">@(i + 1)</button>
-                                }
-                            </div>
+                            @if (movie.CountryID == movie.CountryID && ListMovieNew1.Where(x => x.CountryID == movie.CountryID).Count() > 1)
+                            {
+                                var ListMovieNew = ListMovieNew1.Where(x => x.CountryID == movie.CountryID).ToList();
+                                <div class="server">
+                                    <span class="bss btnt btnt-primary" data-id="NGlaQTBoZWFFQUUvUGVHN3RkZnV5dz09" data-server="VIP2">Change Season</span>
+                                    @for (int i = 0; i < ListMovieNew.Count(); i++)
+                                    {
+                                        <button type="button" onclick="window.location.href='/phim/@ListMovieNew[i].MovieID'" value="@ListMovieNew[i].MovieID">@(i + 1)</button>
+                                    }
+                                </div>
                             }
                         </div>
                     </div>
@@ -112,7 +112,7 @@
 
                         </div>
                         <br />
-                       @* <iframe width="700" height="400" src="@Model.TrailerLink" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>*@
+                        @* <iframe width="700" height="400" src="@Model.TrailerLink" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>*@
                     </div>
                     <div class="clearfix"> </div>
 
@@ -153,7 +153,7 @@
                             <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
                                 <a href="/phim/@pm.MovieID" class="hvr-shutter-out-horizontal">
                                     <img src="@pm.Image" title="album-name" class="img-responsive" alt=" " />
-                                   @* <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>*@
+                                    @* <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>*@
                                 </a>
                                 <div class="mid-1 agileits_w3layouts_mid_1_home">
                                     <div class="w3l-movie-text">
