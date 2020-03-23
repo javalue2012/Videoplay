@@ -29,13 +29,20 @@
                             @if (movie.CountryID == movie.CountryID && ListMovieNew1.Where(x => x.CountryID == movie.CountryID).Count() > 1)
                             {
                                 var ListMovieNew = ListMovieNew1.Where(x => x.CountryID == movie.CountryID).ToList();
-                                <div class="server">
-                                    <span class="bss btnt btnt-primary" data-id="NGlaQTBoZWFFQUUvUGVHN3RkZnV5dz09" data-server="VIP2">Change Season</span>
-                                    @for (int i = 0; i < ListMovieNew.Count(); i++)
+                            <div class="server">
+                                <span class="bss btnt btnt-primary" data-id="NGlaQTBoZWFFQUUvUGVHN3RkZnV5dz09" data-server="VIP2" style="color: #fff;background: #428bca;border-color: #357ebd;">Change Season</span>
+                                @for (int i = 0; i < ListMovieNew.Count(); i++)
+                                {
+                                    if (ListMovieNew[i].MovieID == movie.MovieID)
                                     {
-                                        <button type="button" onclick="window.location.href='/phim/@ListMovieNew[i].MovieID'" value="@ListMovieNew[i].MovieID">@(i + 1)</button>
+                                        <button class"btnt btnt-primary" style="color: #fff;background: #ff0046;border-color: #357ebd;" onclick="window.location.href='/phim/@ListMovieNew[i].MovieID'" value="@ListMovieNew[i].MovieID">@(i + 1)</button>
                                     }
-                                </div>
+                                    else
+                                    {
+                                        <button class"btnt btnt-primary" style="color: #fff;background: #428bca;border-color: #357ebd;" onclick="window.location.href='/phim/@ListMovieNew[i].MovieID'" value="@ListMovieNew[i].MovieID">@(i + 1)</button>
+                                    }
+                                }
+                            </div>
                             }
                         </div>
                     </div>

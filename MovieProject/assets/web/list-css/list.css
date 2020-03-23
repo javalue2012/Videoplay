@@ -85,6 +85,34 @@ td.w3-list-info a {
     color:#FFFFFF !important;
     background: #ff8d1b;
 }
+/* button*/
+.btnt, .bs {
+    width: 15px;
+    display: inline-block;
+    margin-bottom: 1px;
+    margin-right: 1px;
+    margin-top: 1px;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 3px 3px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    border-radius: 5px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+}
+
+.btnt-primary {
+    color: #fff;
+    background-color: #428bca;
+    border-color: #357ebd;
+}
+/*end button*/
 /*-- responsive --*/
 @media(max-width:1080px){
 	.nav-tabs > li {
