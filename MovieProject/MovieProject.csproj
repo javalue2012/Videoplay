@@ -3672,6 +3672,8 @@
     <Content Include="Views\NewM\NewDetail.cshtml" />
     <Content Include="Views\Shared\Country.cshtml" />
     <Content Include="Views\M\CountryPage.cshtml" />
+    <Content Include="Views\M\NewPage.cshtml" />
+    <Content Include="Views\Shared\Season.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

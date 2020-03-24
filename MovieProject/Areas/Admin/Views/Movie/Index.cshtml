@@ -6,8 +6,6 @@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
-
-
 }
 @*@model IEnumerable<Movie>*@
 @section jsFooter{
@@ -21,9 +19,6 @@
     <center>
         <div>
             <h3 style="background-color:lavender">DANH SÁCH PHIM </h3>
-
-
-
         </div>
     </center>
     <div class="table-data__tool">
@@ -88,7 +83,6 @@
                         {
                             <tr style="text-align:left;" id="row_@item.MovieID" class="tr-shadow">
                                 <td style="display:none;">@item.MovieID</td>
-
                                 <td class="tr-shadow">@item.Name</td>
                                 <td class="tr-shadow"><img src="@item.Image" width="150" height="200" /></td>
                                 <td class="tr-shadow">@item.MoreImages</td>
@@ -131,7 +125,7 @@
 
                         }
                     }
-                    </tbody>
+                </tbody>
             </table>
             <div class="content">
                 <ul class="pagination modal-6" style="width:250px">

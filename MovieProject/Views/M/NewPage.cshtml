@@ -1,11 +1,11 @@
 ﻿@using PagedList.Mvc
 @using PagedList;
-@model IPagedList<Models.EF.Movie>
+@model IPagedList<Models.EF.News>
 @{
-    ViewBag.Title = "Danh sách phim theo quốc gia";
+    ViewBag.Title = "Danh sách tin tức";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var country = (Models.EF.Country)ViewBag.country;
-    var ListMovieNew = (List<Models.EF.Movie>)ViewBag.ListMovieNew;
+    var season = (Models.EF.Season)ViewBag.season;
+    var ListMovieNew = (List<Models.EF.News>)ViewBag.ListMovieNew;
 }
 <div class="general-agileits-w3l">
     <div class="w3l-medile-movies-grids">
@@ -14,12 +14,12 @@
             <!--/browse-agile-w3ls -->
             <div class="browse-agile-w3ls general-w3ls">
                 <div class="tittle-head">
-                    <h4 class="latest-text">Phim @country.Name </h4>
+                    <h4 class="latest-text">Phim @season.Name </h4>
                     <div class="container">
                         <div class="agileits-single-top">
                             <ol class="breadcrumb">
                                 <li><a href="/">Trang chủ</a></li>
-                                <li class="active"><a href="/theloai/@country.CountryID">PHIM @country.Name</a></li>
+                                <li class="active"><a href="/theloai/@season.Season_id">PHIM @season.Name</a></li>
                             </ol>
                         </div>
                     </div>
@@ -29,21 +29,21 @@
                         @foreach (var s in Model)
                         {
                             <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="/phim/@s.MovieID" class="hvr-shutter-out-horizontal">
+                                <a href="/phim/@s.NewsID" class="hvr-shutter-out-horizontal">
                                     <img src="@s.Image" title="album-name" alt="@s.Name" width="182" height="268" />
                                     <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                 </a>
                                 <div class="mid-1">
                                     <div class="w3l-movie-text">
-                                        <h6><a href="/phim/@s.MovieID">@s.Name</a></h6>
+                                        <h6><a href="/phim/@s.NewsID">@s.Name</a></h6>
                                     </div>
                                     <div class="mid-2">
                                         <p>@s.Year</p>
-                                        <div class="block-stars">
+                                        @*<div class="block-stars">
                                             <ul class="w3l-ratings">
                                                 <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @s.Rate</h5>
                                             </ul>
-                                        </div>
+                                        </div>*@
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
@@ -78,13 +78,13 @@
                         {
                             <div class="item">
                                 <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                                    <a href="/phim/@pm.MovieID" class="hvr-shutter-out-horizontal">
+                                    <a href="/phim/@pm.NewsID" class="hvr-shutter-out-horizontal">
                                         <img src="@pm.Image" title="album-name" class="img-responsive" alt="@pm.Name" />
                                         <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
                                     </a>
                                     <div class="mid-1 agileits_w3layouts_mid_1_home">
                                         <div class="w3l-movie-text">
-                                            <h6><a href="/phim/@pm.MovieID">@pm.Name</a></h6>
+                                            <h6><a href="/phim/@pm.NewsID">@pm.Name</a></h6>
                                         </div>
                                         <div class="mid-2 agile_mid_2_home">
                                             <p>@pm.Year</p>

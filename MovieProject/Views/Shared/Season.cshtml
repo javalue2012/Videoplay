@@ -1,0 +1,17 @@
+﻿@model List<Models.EF.Season>
+<li class="dropdown">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Season<b class="caret"></b></a>
+    <ul class="dropdown-menu multi-column columns-3">
+        <li>
+            <div class="col-sm-4">
+                <ul class="multi-column-dropdown">
+                  @foreach (var qg in Model)
+                  {
+                    <li><a href="/season/@qg.Season_id">@qg.Name</a></li>
+                  }
+                </ul>
+            </div>
+            <div class="clearfix"></div>
+        </li>
+    </ul>
+</li>

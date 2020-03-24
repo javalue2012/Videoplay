@@ -3,8 +3,11 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var news = (List<Models.EF.News>)ViewBag.news;
+    var category = (Models.EF.Category)ViewBag.category;
     var NewsNew = (List<Models.EF.News>)ViewBag.NewsNew;
     var NewsTop = (List<Models.EF.News>)ViewBag.NewsTop;
+    var season = (List<Models.EF.Season>)ViewBag.season;
+
 }
 
 <div class="faq">
@@ -13,6 +16,7 @@
             <ol class="breadcrumb">
                 <li><a href="/">Trang Chủ</a></li>
                 <li class="active">Tin tức</li>
+                
             </ol>
         </div>
         <div class="agileinfo-news-top-grids">
@@ -30,7 +34,7 @@
                                                 <a href="/tintuc/@item.NewsID"><img src="@item.Image" alt=""></a>
                                             </div>
                                             <div class="col-sm-7 wthree-news-info">
-                                                <h5><a href="/tintuc/@item.NewsID">@item.Name</a></h5>
+                                                <h5><a href="/tintuc/@item.NewsID" >@item.Name</a></h5>
                                                 <p>@Html.Raw(item.MoreDescription)</p>
                                                 <ul>
                                                     <li><i class="fa fa-clock-o" aria-hidden="true"></i>@item.CreatedDate</li>

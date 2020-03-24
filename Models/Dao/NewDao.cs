@@ -32,6 +32,10 @@ namespace Models.Dao
         {
             return db.News.Where(x => x.Status == true).OrderByDescending(x => x.Viewed).Take(top).ToList();
         }
+        public List<News> ListBySeasonID(long Season_id)
+        {
+            return db.News.Where(x => x.Season_id == Season_id).OrderByDescending(x => x.CreatedDate).ToList();
+        }
         public News ViewDetail(int id)
         {
             return db.News.Find(id);
@@ -58,6 +62,11 @@ namespace Models.Dao
             ad.Status = !ad.Status;
             db.SaveChanges();
             return ad.Status;
+        }
+
+        public dynamic ListMovieNew(int v)
+        {
+            throw new NotImplementedException();
         }
     }
 }

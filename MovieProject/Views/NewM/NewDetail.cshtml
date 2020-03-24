@@ -2,19 +2,21 @@
 @{
     ViewBag.Title = "NewDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var season = (Models.EF.Season)ViewBag.season;
     var news = (Models.EF.News)ViewBag.news;
     var NewsNew = (List<Models.EF.News>)ViewBag.NewsNew;
     var NewsTop = (List<Models.EF.News>)ViewBag.NewsTop;
     var ListMovieNew1 = (List<Models.EF.Movie>)ViewBag.ListMovieNew1;
-}
-}
 
+}
+}
 <div class="faq">
     <div class="container">
         <div class="agileits-news-top">
             <ol class="breadcrumb">
                 <li><a href="index.html">Trang Chủ</a></li>
                 <li><a href="news.html">Tin Tức</a></li>
+                @*<li><a href="/theloai/@season.Season_id">@season.Name</a> &nbsp;&nbsp;/&nbsp;&nbsp;<a href="#">@news.Name</a></li>*@
 
             </ol>
         </div>
@@ -34,9 +36,11 @@
                             </div>
                         </div>
                         <div class="w3-agile-news-text">
-                            <p>
-                                @Html.Raw(news.Description)
-                            </p>
+                            <details>
+                                <p>
+                                    @Html.Raw(news.Description)
+                                </p>
+                            </details>
                         </div>
                     </div>
                 </div>
