@@ -30,7 +30,7 @@ namespace MovieProject
             routes.MapRoute(
              name: "season",
              url: "season/{idc}",
-             defaults: new { controller = "M", action = "SeasonPage", id = UrlParameter.Optional },
+             defaults: new { controller = "NewM", action = "SeasonPage", id = UrlParameter.Optional },
              namespaces: new[] { "MovieProject.Controllers" }
          );
             routes.MapRoute(

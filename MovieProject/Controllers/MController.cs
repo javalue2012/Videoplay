@@ -35,6 +35,7 @@ namespace MovieProject.Controllers
             return PartialView(model);
 
         }
+
         [ChildActionOnly]
 
         public PartialViewResult MenuBottom()

@@ -23,7 +23,6 @@ namespace MovieProject.Controllers
             return View();
         }
         [ChildActionOnly]
-
         public PartialViewResult Country()
         {
             var model = new CountryDao().ListAll();
@@ -32,7 +31,6 @@ namespace MovieProject.Controllers
         }
 
         [ChildActionOnly]
-
         public PartialViewResult Season()
         {
             var model = new SeasonDao().ListAll();
@@ -51,12 +49,14 @@ namespace MovieProject.Controllers
 
         }
 
-        public ActionResult SeasonPage(long idc, int page = 1)
+        public ActionResult SeasonPage(int idc, int page = 1)
         {
             var newDao = new NewDao();
             var season = new SeasonDao().ViewDetail(idc);
             ViewBag.season = season;
-            ViewBag.listnewsnew = newDao.ListNewsNew(12);
+            ViewBag.ListNewsNew = newDao.ListNewsNew(12);
+            ViewBag.NewsNew = newDao.ListNewsNew(5);
+            ViewBag.NewsTop = newDao.ListNewsTop(6);
             var model = newDao.ListBySeasonID(idc);
             return View(model.ToPagedList(page, 12));
 
@@ -78,6 +78,7 @@ namespace MovieProject.Controllers
                 upview.Description = upview.Description;
                 upview.CreatedDate = upview.CreatedDate;
                 upview.Status = upview.Status;
+                upview.Season = upview.Season;
                 db.Entry(upview).State = EntityState.Modified;
                 db.SaveChanges();
                 return View(upview);
@@ -90,6 +91,7 @@ namespace MovieProject.Controllers
                 upview.Description = upview.Description;
                 upview.CreatedDate = upview.CreatedDate;
                 upview.Status = upview.Status;
+                upview.Season = upview.Season;
                 db.Entry(upview).State = EntityState.Modified;
                 db.SaveChanges();
                 return View(upview);

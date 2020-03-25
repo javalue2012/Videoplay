@@ -9,8 +9,9 @@ namespace Models.EF
     [Table("Season")]
     public partial class Season
     {
-        public int Season_id { get; set; }
         [Key]
+        public int Season_id { get; set; }
+
         [StringLength(10)]
         public string Name { get; set; }
 

@@ -60,5 +60,9 @@ namespace Models.EF
         public string MoreDescription { get; set; }
 
         public int? Season_id { get; set; }
+
+        [StringLength(50)]
+        public string Season { get; set; }
+
     }
 }
