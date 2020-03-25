@@ -5,6 +5,7 @@ E:\PROJECT\MovieProject\Common\obj\Debug\Common.dll
 E:\PROJECT\MovieProject\Common\obj\Debug\Common.pdb
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\Common\bin\Debug\Common.dll
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\Common\bin\Debug\Common.pdb
+C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\Common\obj\Debug\Common.csprojAssemblyReference.cache
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\Common\obj\Debug\Common.csproj.CoreCompileInputs.cache
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\Common\obj\Debug\Common.dll
 C:\Users\luong.nguyen\Downloads\TRANVANSON-10116282-TK14.4\MovieProject\Common\obj\Debug\Common.pdb

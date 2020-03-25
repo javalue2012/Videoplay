@@ -2,9 +2,16 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var Slides = (List<Models.EF.Slide>)ViewBag.Slides;
+    //movie
     var ListMovieNew = (List<Models.EF.Movie>)ViewBag.ListMovieNew;
     var ListMovieTop = (List<Models.EF.Movie>)ViewBag.ListMovieTop;
     var ListMoviePo = (List<Models.EF.Movie>)ViewBag.ListMoviePo;
+    //new
+    var news = (List<Models.EF.News>)ViewBag.news;
+    var category = (Models.EF.Category)ViewBag.category;
+    var ListNewsNew = (List<Models.EF.News>)ViewBag.ListNewsNew;
+    var ListNewsTop = (List<Models.EF.News>)ViewBag.ListNewsTop;
+    var season = (List<Models.EF.Season>)ViewBag.season;
 }
 @section slide{
     <!-- banner -->
@@ -31,157 +38,282 @@
     </script>
     <!--End banner -->
 }
-
 <!-- banner-bottom -->
-<div class="banner-bottom">
-    <div class="container">
-        <div class="w3_agile_banner_bottom_grid">
-            <div id="owl-demo" class="owl-carousel owl-theme">
-                @foreach (var s in ListMovieNew)
-                {
-                    <div class="item">
-                        <div class="w3l-movie-gride-agile w3l-movie-gride-agile1">
-                            <a href="/phim/@s.MovieID" class="hvr-shutter-out-horizontal">
-                                <img src="@s.Image" title="album-name" class="img-responsive" alt="@s.Name" />
-                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                            </a>
-                            <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                <div class="w3l-movie-text">
-                                    <h6><a href="#">@s.Name</a></h6>
-                                </div>
-                                <div class="mid-2 agile_mid_2_home">
-                                    <p>@s.Year</p>
-                                    <div class="block-stars">
-                                        <ul class="w3l-ratings">
-                                            <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @s.Rate</h5>
 
-                                        </ul>
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </div>
-                            <div class="ribben">
-                                <p>NEW</p>
-                            </div>
-                        </div>
-                    </div>
-                }
-            </div>
-        </div>
-    </div>
-</div>
 <!-- //banner-bottom -->
 <!--Live Chat Facebook-->
 <!-- general -->
-<div class="general-agileits-w3l">
-    <div class="w3l-medile-movies-grids">
-        <div class="movie-browse-agile">
-            <div class="browse-agile-w3ls general-w3ls">
-                <h4 class="latest-text w3_latest_text">Phim nổi bật</h4>
-                <div class="container">
-                    <!-- /latest-movies1 -->
-                    <div class="browse-inner-come-agile-w3">
+@*<div class="general-agileits-w3l">
+        <div class="w3l-medile-movies-grids">
+            <div class="movie-browse-agile">
+                <div class="browse-agile-w3ls general-w3ls">
+                    <h4 class="latest-text w3_latest_text">Phim nổi bật</h4>
+                    <div class="container">
+                        <!-- /latest-movies1 -->
+                        <div class="browse-inner-come-agile-w3">
 
-                        @foreach (var m in ListMovieTop)
-                        {
-                            <div class="col-md-2 w3l-movie-gride-agile">
-                                <a href="/phim/@m.MovieID" class="hvr-shutter-out-horizontal">
+                            @foreach (var m in ListMovieTop)
+                            {
+                                <div class="col-md-2 w3l-movie-gride-agile">
+                                    <a href="/phim/@m.MovieID" class="hvr-shutter-out-horizontal">
 
-                                    <img src="@m.Image" title="album-name" class="img-responsive" alt="@m.Name" />
-                                    <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                                </a>
-                                <div class="mid-1">
-                                    <div class="w3l-movie-text">
-                                        <h6><a href="#">@m.Name</a></h6>
-                                    </div>
-                                    <div class="mid-2">
-
-                                        <p>@m.Year</p>
-
-                                        <div class="block-stars">
-                                            <ul class="w3l-ratings">
-                                                <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @m.Rate</h5>
-
-                                            </ul>
+                                        <img src="@m.Image" title="album-name" class="img-responsive" alt="@m.Name" />
+                                        <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                    </a>
+                                    <div class="mid-1">
+                                        <div class="w3l-movie-text">
+                                            <h6><a href="#">@m.Name</a></h6>
                                         </div>
-                                        <div class="clearfix"></div>
+                                        <div class="mid-2">
+
+                                            <p>@m.Year</p>
+
+                                            <div class="block-stars">
+                                                <ul class="w3l-ratings">
+                                                    <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @m.Rate</h5>
+
+                                                </ul>
+                                            </div>
+                                            <div class="clearfix"></div>
+                                        </div>
+
                                     </div>
 
                                 </div>
+                            }
 
-                            </div>
-                        }
-
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-                            }
-<!-- //general -->
-@*<div class="container">
-        <center><img src="#" alt="HTML5 Icon" style="width:980px;height:100px;"></center>
-    </div>*@
-<!-- Latest-tv-series -->
-<div class="Latest-tv-series">
-    <h4 class="latest-text w3_latest_text w3_home_popular">Phim phổ biến nhất</h4>
-    <div class="container">
-        <section class="slider">
-            <div class="flexslider">
+                                }
+    <!-- //general -->
+    @*<div class="container">
+            <center><img src="#" alt="HTML5 Icon" style="width:980px;height:100px;"></center>
+        </div>
+    <!-- Latest-tv-series -->
+    <div class="Latest-tv-series">
+        <h4 class="latest-text w3_latest_text w3_home_popular">Phim phổ biến nhất</h4>
+        <div class="container">
+            <section class="slider">
+                <div class="flexslider">
 
-                <ul class="slides">
-                    <li>
-                        <div class="agile_tv_series_grid">
-                            <div class="clearfix"> </div>
-                            <div class="agileinfo_flexislider_grids">
-                                @foreach (var po in ListMoviePo)
-                                {
-                                    <div class="col-md-2 w3l-movie-gride-agile">
-                                        <a href="/phim/@po.MovieID" class="hvr-shutter-out-horizontal">
-                                            <img src="@po.Image" title="album-name" alt="@po.Name" width="182" height="268" />
-                                            <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
-                                        </a>
-                                        <div class="mid-1 agileits_w3layouts_mid_1_home">
-                                            <div class="w3l-movie-text">
-                                                <h6><a href="#">@po.Name</a></h6>
-                                            </div>
-                                            <div class="mid-2 agile_mid_2_home">
-                                                <p>@po.Year</p>
-                                                <div class="block-stars">
-                                                    <ul class="w3l-ratings">
-                                                        <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @po.Rate</h5>
-
-                                                    </ul>
+                    <ul class="slides">
+                        <li>
+                            <div class="agile_tv_series_grid">
+                                <div class="clearfix"> </div>
+                                <div class="agileinfo_flexislider_grids">
+                                    @foreach (var po in ListMoviePo)
+                                    {
+                                        <div class="col-md-2 w3l-movie-gride-agile">
+                                            <a href="/phim/@po.MovieID" class="hvr-shutter-out-horizontal">
+                                                <img src="@po.Image" title="album-name" alt="@po.Name" width="182" height="268" />
+                                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                            </a>
+                                            <div class="mid-1 agileits_w3layouts_mid_1_home">
+                                                <div class="w3l-movie-text">
+                                                    <h6><a href="#">@po.Name</a></h6>
                                                 </div>
-                                                <div class="clearfix"></div>
+                                                <div class="mid-2 agile_mid_2_home">
+                                                    <p>@po.Year</p>
+                                                    <div class="block-stars">
+                                                        <ul class="w3l-ratings">
+                                                            <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @po.Rate</h5>
+
+                                                        </ul>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                }
+                                        <div class="clearfix"> </div>
+                                    }
+                                </div>
                             </div>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </section>
-        <!-- flexSlider -->
-        <link rel="stylesheet" href="~/assets/web/css/flexslider.css" type="text/css" media="screen" property="" />
-        <script defer src="~/assets/web/js/jquery.flexslider.js"></script>
-        <script type="text/javascript">
-            $(window).load(function () {
-                $('.flexslider').flexslider({
-                    animation: "slide",
-                    start: function (slider) {
-                        $('body').removeClass('loading');
-                    }
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            <!-- flexSlider -->
+            <link rel="stylesheet" href="~/assets/web/css/flexslider.css" type="text/css" media="screen" property="" />
+            <script defer src="~/assets/web/js/jquery.flexslider.js"></script>
+            <script type="text/javascript">
+                $(window).load(function () {
+                    $('.flexslider').flexslider({
+                        animation: "slide",
+                        start: function (slider) {
+                            $('body').removeClass('loading');
+                        }
+                    });
                 });
-            });
-        </script>
-        <!-- //flexSlider -->
+            </script>
+            <!-- //flexSlider -->
+        </div>
+    </div>*@
+<div class="faq">
+    <div class="container">
+        <div class="agileits-news-top">
+            <ol class="breadcrumb">
+                <li><a href="/">Trang Chủ</a></li>
+            </ol>
+        </div>
+        <div class="agileinfo-news-top-grids">
+            <div class="col-md-8 wthree-top-news-left">
+                <div class="wthree-news-right-heading">
+                    <h3>video hay</h3>
+                </div>
+                <div class="wthree-news-left">
+                    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="home1" aria-labelledby="home1-tab">
+                                <div class="wthree-news-top-left">
+                                    @foreach (var m in ListMoviePo)
+                                    {
+                                        <div class="col-md-2 w3l-movie-gride-agile">
+                                            <a href="/phim/@m.MovieID" class="hvr-shutter-out-horizontal">
+                                                <img src="@m.Image" title="album-name" class="img-responsive" alt="@m.Name" />
+                                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                            </a>
+                                            <div class="mid-1">
+                                                <div class="w3l-movie-text">
+                                                    <h6><a href="#">@m.Name</a></h6>
+                                                </div>
+                                                <div class="mid-2">
+                                                    <p>@m.Year</p>
+                                                    <div class="block-stars">
+                                                        <ul class="w3l-ratings">
+                                                            <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @m.Rate</h5>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                    <div class="clearfix"> </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="wthree-news-left">
+                    <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                        <div id="myTabContent" class="tab-content">
+                            <div role="tabpanel" class="tab-pane fade in active" id="home1" aria-labelledby="home1-tab">
+                                <div class="wthree-news-top-left">
+                                    @foreach (var m in ListMovieTop)
+                                    {
+                                        <div class="col-md-2 w3l-movie-gride-agile">
+                                            <a href="/phim/@m.MovieID" class="hvr-shutter-out-horizontal">
+                                                <img src="@m.Image" title="album-name" class="img-responsive" alt="@m.Name" />
+                                                <div class="w3l-action-icon"><i class="fa fa-play-circle" aria-hidden="true"></i></div>
+                                            </a>
+                                            <div class="mid-1">
+                                                <div class="w3l-movie-text">
+                                                    <h6><a href="#">@m.Name</a></h6>
+                                                </div>
+                                                <div class="mid-2">
+                                                    <p>@m.Year</p>
+                                                    <div class="block-stars">
+                                                        <ul class="w3l-ratings">
+                                                            <h5 style="font-size:12px;font-weight:bold;background-color:#E3B71E;border-radius:3px;padding:3px;"> Điểm IMDb: @m.Rate</h5>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    }
+                                    <div class="clearfix"> </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-4 wthree-news-right">
+                <!-- news-right-top -->
+                <div class="news-right-top">
+                    <div class="wthree-news-right-heading">
+                        <h3>Tin tức cập nhật</h3>
+                    </div>
+                    <div class="wthree-news-right-top">
+                        <div class="news-grids-bottom">
+                            <!-- date -->
+                            <div id="design" class="date">
+                                <div id="cycler">
+                                    @foreach (var s in ListNewsNew)
+                                    {
+                                        <div class="date-text" style="display: block;">
+                                            <a href="/tintuc/@s.NewsID">@s.Name <span class="blinking" style="display: inline; opacity: 0.304313;"><img src="/assets/web/images/new.png" alt=""></span></a>
+                                            <p>@s.MoreDescription</p>
+                                        </div>
+                                    }
+                                </div>
+                                <script>
+                                    function blinker() {
+                                        $('.blinking').fadeOut(500);
+                                        $('.blinking').fadeIn(500);
+                                    }
+                                    setInterval(blinker, 1000);
+                                </script>
+                                <script>
+                                    function cycle($item, $cycler) {
+                                        setTimeout(cycle, 2000, $item.next(), $cycler);
+
+                                        $item.slideUp(1000, function () {
+                                            $item.appendTo($cycler).show();
+                                        });
+                                    }
+                                    cycle($('#cycler div:first'), $('#cycler'));
+                                </script>
+                            </div>
+                            <!-- //date -->
+                        </div>
+                    </div>
+                </div>
+                <!-- //news-right-top -->
+                <!-- news-right-bottom -->
+                <div class="news-right-bottom">
+                    <div class="wthree-news-right-heading">
+                        <h3>Tin tức hàng đầu</h3>
+                    </div>
+                    <div class="news-right-bottom-bg">
+                        <div class="news-grids-bottom">
+                            @foreach (var item in ListNewsTop)
+                            {
+                                <div class="top-news-grid">
+                                    <div class="top-news-grid-heading">
+                                        <a href="/tintuc/@item.NewsID">@item.Name</a>
+                                    </div>
+                                    <div class="w3ls-news-t-grid top-t-grid">
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-clock-o"></i>@item.CreatedDate</a></li>
+                                            <li><a href="#"><i class="fa fa-user"></i> ADMIN</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+                <!-- //news-right-bottom -->
+            </div>
+            <div class="clearfix"> </div>
+        </div>
     </div>
 </div>
+
 <!-- pop-up-box -->
 <script src="~/assets/web/js/jquery.magnific-popup.js" type="text/javascript"></script>
 
@@ -197,19 +329,19 @@
     <iframe src="https://player.vimeo.com/video/165197924?color=ffffff&title=0&byline=0&portrait=0"></iframe>
 </div>
 <script>
-            $(document).ready(function () {
-                $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
-                    type: 'inline',
-                    fixedContentPos: false,
-                    fixedBgPos: true,
-                    overflowY: 'auto',
-                    closeBtnInside: true,
-                    preloader: false,
-                    midClick: true,
-                    removalDelay: 300,
-                    mainClass: 'my-mfp-zoom-in'
-                });
+    $(document).ready(function () {
+        $('.w3_play_icon,.w3_play_icon1,.w3_play_icon2').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
 
-            });
+    });
 </script>
 <!-- //Latest-tv-series -->

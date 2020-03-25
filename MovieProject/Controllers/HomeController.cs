@@ -13,9 +13,12 @@ namespace MovieProject.Controllers
         public ActionResult Index()
         {
             var MovieDao = new MovieDao();
+            var NewDao = new NewDao();
             ViewBag.ListMovieNew = MovieDao.ListMovieNew(12);
             ViewBag.ListMovieTop = MovieDao.ListMovieTop(12);
             ViewBag.ListMoviePo = MovieDao.ListMoviePo(6);
+            ViewBag.ListNewsNew = NewDao.ListNewsNew(6);
+            ViewBag.ListNewsTop = NewDao.ListNewsTop(6);
             ViewBag.Slides = new SlideDao().ListAllSlide(5);
             var model = new AdDao().GetContentAd();
             return View(model);
